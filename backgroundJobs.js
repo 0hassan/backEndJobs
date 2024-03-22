@@ -3,16 +3,37 @@ const { createBullBoard } = require("@bull-board/api");
 const { BullAdapter } = require("@bull-board/api/bullAdapter");
 const { ExpressAdapter } = require("@bull-board/express");
 
-const hblQueue = new Queue("hbl", {
-  redis: { port: 6379, host: "127.0.0.1", password: "foobared" },
-});
-const burgerQueue = new Queue("burger");
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 
 const serverAdapter = new ExpressAdapter();
 serverAdapter.setBasePath("/admin/queues");
 
+const myFirstQueue = new Queue("my-first-queue");
+
+myFirstQueue.add({ message: "how are you" });
+myFirstQueue.add({ foo: "bar" }, { delay: 5000 });
+
+myFirstQueue.process(async (job) => {
+  let progress = 0;
+  for (i = 0; i < 100; i++) {
+    await doSomething(job.data);
+    progress += 1;
+    await sleep(1000);
+    job.progress(progress);
+    job.log(`progress is ${progress}%`);
+  }
+});
+
+// this is external function
+function doSomething(data) {
+  console.log(data);
+  return Promise.resolve();
+}
+
 const { addQueue, removeQueue, setQueues, replaceQueues } = createBullBoard({
-  queues: [new BullAdapter(hblQueue), new BullAdapter(burgerQueue)],
+  queues: [new BullAdapter(myFirstQueue)],
   serverAdapter: serverAdapter,
 });
 

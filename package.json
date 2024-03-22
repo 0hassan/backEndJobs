@@ -13,6 +13,7 @@
     "@bull-board/express": "^5.15.1",
     "bull": "^4.12.2",
     "bullmq": "^5.4.5",
+    "cluster": "^0.7.7",
     "express": "^4.19.1",
     "nodemon": "^3.1.0"
   }
