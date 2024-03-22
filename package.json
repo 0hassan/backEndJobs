@@ -1,0 +1,19 @@
+{
+  "name": "backendjobs",
+  "version": "1.0.0",
+  "description": "backend jobs and bull lib exploration",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bull-board/api": "^5.15.1",
+    "@bull-board/express": "^5.15.1",
+    "bull": "^4.12.2",
+    "bullmq": "^5.4.5",
+    "express": "^4.19.1",
+    "nodemon": "^3.1.0"
+  }
+}
