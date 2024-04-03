@@ -42,13 +42,11 @@ const commit1 = function () {
 };
 
 const commit2 = function () {
-
 	console.log('commit1 in newbranch2');
 };
 
 const commit3 = function () {
 	console.log('commit1 in newbranch3');
-
 };
 
 const commit4 = function () {
