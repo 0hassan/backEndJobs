@@ -41,4 +41,8 @@ const commit1 = function () {
 	console.log('commit1 in newbranch1');
 };
 
+const commit2 = function () {
+	console.log('commit2 in newbranch1');
+};
+
 module.exports = { serverAdapter };
