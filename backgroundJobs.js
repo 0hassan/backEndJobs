@@ -37,20 +37,4 @@ const { addQueue, removeQueue, setQueues, replaceQueues } = createBullBoard({
 	serverAdapter: serverAdapter,
 });
 
-const commit1 = function () {
-	console.log('commit1 in newbranch1');
-};
-
-const commit2 = function () {
-	console.log('commit1 in newbranch2');
-};
-
-const commit3 = function () {
-	console.log('commit1 in newbranch3');
-};
-
-const commit4 = function () {
-	console.log('commit1 in newbranch4');
-};
-
 module.exports = { serverAdapter };
